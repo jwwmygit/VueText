@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    const p={
+        firstName:'A',
+        lastName:'B'
+    }
+    Object.defineProperty(p,'fullName',{
+        get(){
+            console.log('get()')
+            return this.firstName+'-'+this.lastName;
+        },
+        set(value){
+            console.log('set()');
+            const name=value.split('-');
+            this.lastName=name[1];
+            this.firstName=name[0];
+
+        }
+    })
+    console.log(p.fullName);
+    p.lastName='C';
+    p.firstName='D'
+    console.log(p.fullName);
+    p.fullName='E-F'
+    console.log(p.firstName,p.lastName)
+</script>
+</body>
+</html>
