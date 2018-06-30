@@ -19,11 +19,22 @@
   xxx-leave-active: 指定隐藏的transition
   xxx-enter: 指定隐藏时的样式
 -->
+<div id="text1">
+  <button @click="show=!show">点我</button>
+ <transition name="slide-fade">
+   <p v-if="show">Toggle</p>
+ </transition>
 
+</div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
-
+   new Vue({
+   el:'#text1',
+       data:{
+       show:true
+       }
+   })
 </script>
 </body>
 </html>
